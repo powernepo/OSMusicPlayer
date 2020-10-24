@@ -1,27 +1,42 @@
+import kotlin.collections.setOf
+
 plugins {
     id("com.android.application")
+    id("kotlin-android")
+    id("kotlin-android-extensions")
+    id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
-    kotlin("android")
-    kotlin("kapt")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
-    compileSdkVersion(30)
-    buildToolsVersion("30.0.2")
+    buildFeatures {
+        viewBinding = true
+    }
+
+    androidExtensions{
+        features = setOf("parcelize")
+    }
+
+    compileSdkVersion(Configuration.Android.compileSdkVersion)
+    buildToolsVersion(Configuration.Android.buildToolsVersion)
 
     defaultConfig {
-        applicationId("com.powernepo.osmusicplayer")
-        minSdkVersion(22)
-        targetSdkVersion(30)
-        versionCode(1)
-        versionName("1.0")
-        testInstrumentationRunner("androidx.test.runner.AndroidJUnitRunner")
+        applicationId(Configuration.DefaultConfig.applicationId)
+        minSdkVersion(Configuration.DefaultConfig.minSdkVersion)
+        targetSdkVersion(Configuration.DefaultConfig.targetSdkVersion)
+        versionCode(Configuration.DefaultConfig.versionCode)
+        versionName(Configuration.DefaultConfig.versionName)
+        testInstrumentationRunner(Configuration.DefaultConfig.testInstrumentationRunner)
     }
 
     buildTypes {
-        getByName("release"){
+        getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -34,7 +49,6 @@ android {
 }
 
 dependencies {
-
     implementation(Libraries.Core.stdlibJdk8)
     implementation(Libraries.Core.stdlib)
     implementation(Libraries.Core.coreKtx)
@@ -45,9 +59,14 @@ dependencies {
 
     implementation(Libraries.Ui.Navigation.navigationFragment)
     implementation(Libraries.Ui.Navigation.navigationUi)
+    kapt(Libraries.Ui.Navigation.navigationSafeArgs)
+
+    implementation(Libraries.Ui.ViewModel.viewModel)
 
     implementation(Libraries.DaggerHilt.hilt)
+    implementation(Libraries.DaggerHilt.viewModel)
     kapt(Libraries.DaggerHilt.hiltCompiler)
+    kapt(Libraries.DaggerHilt.viewModelCompiler)
 
     testImplementation(Libraries.Test.junit)
     androidTestImplementation(Libraries.Test.extJunit)

@@ -4,9 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/primeiraTela">
+
     <fragment
         android:id="@+id/primeiraTela"
         android:name="com.powernepo.osmusicplayer.PrimeiraTela"
         android:label="fragment_primeira_tela"
-        tools:layout="@layout/fragment_primeira_tela" />
+        tools:layout="@layout/fragment_primeira_tela" >
+        <action
+            android:id="@+id/action_primeiraTela_to_segundaTela"
+            app:destination="@id/segundaTela" />
+    </fragment>
+    <fragment
+        android:id="@+id/segundaTela"
+        android:name="com.powernepo.osmusicplayer.SegundaTela"
+        android:label="fragment_segunda_tela"
+        tools:layout="@layout/fragment_segunda_tela" >
+        <argument
+            android:name="car"
+            app:argType="com.powernepo.osmusicplayer.Car" />
+    </fragment>
 </navigation>
