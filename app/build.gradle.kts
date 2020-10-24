@@ -49,6 +49,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":common_android"))
+
     implementation(Libraries.Core.stdlibJdk8)
     implementation(Libraries.Core.stdlib)
     implementation(Libraries.Core.coreKtx)
