@@ -5,8 +5,9 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.1.0")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10")
+        classpath(Libraries.BuildScript.gradle)
+        classpath(Libraries.BuildScript.kotlinGradlePlugin)
+        classpath(Libraries.BuildScript.hiltAndroidGradlePlugin)
     }
 }
 
@@ -18,6 +19,6 @@ allprojects {
     }
 }
 
-tasks.register("clean", Delete::class){
+tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }

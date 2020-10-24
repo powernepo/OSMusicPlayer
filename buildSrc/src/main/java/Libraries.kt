@@ -1,4 +1,11 @@
 class Libraries {
+    object BuildScript{
+        const val gradle = "com.android.tools.build:gradle:4.1.0"
+        const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10"
+        const val hiltAndroidGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:2.28-alpha"
+    }
+
+
     object Ui {
         object Navigation {
             const val navigationUi = "androidx.navigation:navigation-ui-ktx:2.3.1"
@@ -22,7 +29,7 @@ class Libraries {
         const val stdlibJdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.10"
     }
 
-    object DaggerHilt{
+    object DaggerHilt {
         const val hilt = "com.google.dagger:hilt-android:2.28-alpha"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:2.28-alpha"
     }
