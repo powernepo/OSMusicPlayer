@@ -42,6 +42,8 @@ android {
     compileOptions {
         sourceCompatibility(JavaVersion.VERSION_1_8)
         targetCompatibility(JavaVersion.VERSION_1_8)
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -50,6 +52,7 @@ android {
 
 dependencies {
     implementation(project(":common_android"))
+    implementation(project(":offlineData"))
 
     implementation(Libraries.Core.stdlibJdk8)
     implementation(Libraries.Core.stdlib)
@@ -69,6 +72,9 @@ dependencies {
     implementation(Libraries.DaggerHilt.viewModel)
     kapt(Libraries.DaggerHilt.hiltCompiler)
     kapt(Libraries.DaggerHilt.viewModelCompiler)
+
+    implementation(Libraries.Room.runtime)
+    kapt(Libraries.Room.compile)
 
     testImplementation(Libraries.Test.junit)
     androidTestImplementation(Libraries.Test.extJunit)
