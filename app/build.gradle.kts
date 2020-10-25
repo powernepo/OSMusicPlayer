@@ -7,6 +7,8 @@ plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -61,6 +63,7 @@ dependencies {
 
     implementation(Libraries.Ui.Navigation.navigationFragment)
     implementation(Libraries.Ui.Navigation.navigationUi)
+    implementation("com.google.firebase:firebase-analytics:17.2.2")
     kapt(Libraries.Ui.Navigation.navigationSafeArgs)
 
     implementation(Libraries.Ui.ViewModel.viewModel)
@@ -69,6 +72,11 @@ dependencies {
     implementation(Libraries.DaggerHilt.viewModel)
     kapt(Libraries.DaggerHilt.hiltCompiler)
     kapt(Libraries.DaggerHilt.viewModelCompiler)
+
+    implementation(platform("com.google.firebase:firebase-bom:25.12.0"))
+    implementation("com.google.firebase:firebase-crashlytics-ktx")
+    implementation("com.google.firebase:firebase-analytics-ktx")
+
 
     testImplementation(Libraries.Test.junit)
     androidTestImplementation(Libraries.Test.extJunit)

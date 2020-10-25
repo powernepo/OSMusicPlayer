@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "476676368507",
+    "firebase_url": "https://osmusicplay-d2c7f.firebaseio.com",
+    "project_id": "osmusicplay-d2c7f",
+    "storage_bucket": "osmusicplay-d2c7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476676368507:android:704a3545347d09c4a3dade",
+        "android_client_info": {
+          "package_name": "com.powernepo.osmusicplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "476676368507-7mcp4c1e204qrb37o6agdb5i18eqve0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwKk-xbW-3BGgzZVeBN4Q4BI0B9WWDBSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "476676368507-7mcp4c1e204qrb37o6agdb5i18eqve0p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

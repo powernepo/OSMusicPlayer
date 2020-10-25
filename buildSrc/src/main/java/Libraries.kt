@@ -51,6 +51,11 @@ class Libraries {
             const val kotlin = "1.4.10"
             const val coreKtx = "1.3.2"
             const val appCompat = "1.2.0"
+            const val googleService = "4.3.4"
+        }
+
+        object Google{
+            const val service = "com.google.gms:google-services:${Versions.googleService}"
         }
 
         const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
