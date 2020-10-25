@@ -3,8 +3,7 @@ class Libraries {
     object BuildScript {
         const val gradle = "com.android.tools.build:gradle:4.1.0"
         const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10"
-        const val hiltAndroidGradlePlugin =
-            "com.google.dagger:hilt-android-gradle-plugin:2.28-alpha"
+        const val hiltAndroidGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:2.28-alpha"
     }
 
     object Ui {
@@ -52,10 +51,19 @@ class Libraries {
             const val coreKtx = "1.3.2"
             const val appCompat = "1.2.0"
             const val googleService = "4.3.4"
+            const val crashlytics = "2.3.0"
+            const val firebaseBom = "25.12.0"
+            const val firebase = "17.2.2"
         }
 
         object Google{
             const val service = "com.google.gms:google-services:${Versions.googleService}"
+            const val crashlyticsPlugin = "com.google.firebase:firebase-crashlytics-gradle:${Versions.crashlytics}"
+            const val crashlyticsKtx = "com.google.firebase:firebase-crashlytics-ktx"
+            const val analyticsKtx = "com.google.firebase:firebase-analytics-ktx"
+            const val platformBom = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
+            const val analytics ="com.google.firebase:firebase-analytics:${Versions.firebase}"
+            const val crashlytics ="com.google.firebase:firebase-crashlytics:${Versions.firebase}"
         }
 
         const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"

@@ -11,6 +11,5 @@ class PrimeiraTela : Fragment(R.layout.fragment_primeira_tela){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        throw RuntimeException("Force Crash")
     }
 }

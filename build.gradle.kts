@@ -9,8 +9,8 @@ buildscript {
         classpath(Libraries.BuildScript.kotlinGradlePlugin)
         classpath(Libraries.BuildScript.hiltAndroidGradlePlugin)
         classpath(Libraries.Ui.Navigation.navigationSafeArgsPlugin)
+        classpath(Libraries.Core.Google.crashlyticsPlugin)
         classpath(Libraries.Core.Google.service)
-        classpath("com.google.firebase:firebase-crashlytics-gradle:2.3.0")
     }
 }
 

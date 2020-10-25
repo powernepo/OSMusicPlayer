@@ -63,7 +63,6 @@ dependencies {
 
     implementation(Libraries.Ui.Navigation.navigationFragment)
     implementation(Libraries.Ui.Navigation.navigationUi)
-    implementation("com.google.firebase:firebase-analytics:17.2.2")
     kapt(Libraries.Ui.Navigation.navigationSafeArgs)
 
     implementation(Libraries.Ui.ViewModel.viewModel)
@@ -73,10 +72,11 @@ dependencies {
     kapt(Libraries.DaggerHilt.hiltCompiler)
     kapt(Libraries.DaggerHilt.viewModelCompiler)
 
-    implementation(platform("com.google.firebase:firebase-bom:25.12.0"))
-    implementation("com.google.firebase:firebase-crashlytics-ktx")
-    implementation("com.google.firebase:firebase-analytics-ktx")
-
+    implementation(platform(Libraries.Core.Google.platformBom))
+    implementation(Libraries.Core.Google.crashlyticsKtx)
+    implementation(Libraries.Core.Google.analyticsKtx)
+    implementation(Libraries.Core.Google.analytics)
+    implementation(Libraries.Core.Google.crashlytics)
 
     testImplementation(Libraries.Test.junit)
     androidTestImplementation(Libraries.Test.extJunit)
