@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
 @Module
@@ -16,13 +17,16 @@ class RoomModule {
 
     @Provides
     @Singleton
-    fun providesDatabase(context: Context): Database = Room.databaseBuilder(
+    fun providesDatabase(
+        @ApplicationContext context: Context
+    ): Database = Room.databaseBuilder(
         context,
         Database::class.java,
         databaseName
-    ).build()
+    ).allowMainThreadQueries().build()
 
     @Provides
     @Singleton
-    fun providesMobileDao(database: Database) = database.mobileDao()
+    fun providesMobileDao(database: Database) =
+        database.mobileDao()
 }

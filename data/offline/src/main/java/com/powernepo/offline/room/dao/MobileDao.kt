@@ -7,8 +7,9 @@ import com.powernepo.offline.data.entity.Mobile
 
 @Dao
 interface MobileDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(mobile: Mobile) : Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(vararg mobile: Mobile)
-
+    fun insert(vararg mobile: Mobile) : LongArray
 }
