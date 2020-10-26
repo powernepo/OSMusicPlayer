@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -18,7 +19,7 @@ android {
     }
 
     buildTypes {
-        getByName("release"){
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -36,6 +37,9 @@ android {
 }
 
 dependencies {
-    implementation(Libraries.Core.appCompat)
+    implementation(Libraries.Room.runtime)
+    kapt(Libraries.Room.compile)
 
+    implementation(Libraries.DaggerHilt.hilt)
+    kapt(Libraries.DaggerHilt.hiltCompiler)
 }

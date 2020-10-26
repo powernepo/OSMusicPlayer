@@ -1,14 +1,14 @@
-package com.powernepo.offlinedata.dao
+package com.powernepo.offline.room.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
-import com.powernepo.offlinedata.entities.MobileEntity
+import com.powernepo.offline.data.entity.Mobile
 
 @Dao
 interface MobileDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(vararg mobile: MobileEntity)
+    fun insert(vararg mobile: Mobile)
 
 }

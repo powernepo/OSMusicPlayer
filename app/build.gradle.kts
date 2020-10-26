@@ -52,7 +52,7 @@ android {
 
 dependencies {
     implementation(project(":common_android"))
-    implementation(project(":offlineData"))
+    implementation(project(":data:offline"))
 
     implementation(Libraries.Core.stdlibJdk8)
     implementation(Libraries.Core.stdlib)
