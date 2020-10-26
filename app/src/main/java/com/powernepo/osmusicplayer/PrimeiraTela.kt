@@ -3,7 +3,6 @@ package com.powernepo.osmusicplayer
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.powernepo.offline.domain.model.Mobile
 import com.powernepo.offline.domain.repository.MobileRepository
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -16,7 +15,7 @@ class PrimeiraTela : Fragment(R.layout.fragment_primeira_tela){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val res = repository.insert(Mobile(1))
+        val res = repository.all()
         println(res)
     }
 }

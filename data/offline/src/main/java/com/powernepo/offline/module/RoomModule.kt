@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.powernepo.offline.room.builder.Database
 import com.powernepo.offline.room.builder.databaseName
+import com.powernepo.offline.room.migrations.MigrationFrom1To2
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +24,9 @@ class RoomModule {
         context,
         Database::class.java,
         databaseName
-    ).allowMainThreadQueries().build()
+    ).allowMainThreadQueries().addMigrations(
+        MigrationFrom1To2()
+    ).build()
 
     @Provides
     @Singleton

@@ -1,5 +1,6 @@
 package com.powernepo.offline.data.repository
 
+import com.powernepo.offline.data.mapper.toDomainModel
 import com.powernepo.offline.domain.model.Mobile
 import com.powernepo.offline.domain.repository.MobileRepository
 import com.powernepo.offline.room.dao.MobileDao
@@ -17,4 +18,9 @@ class MobileRepositoryImpl @Inject constructor(
                 id = mobile.id
             )
         )
+
+    override fun all() =
+        mobileDao.all().map {
+            it.toDomainModel()
+        }
 }

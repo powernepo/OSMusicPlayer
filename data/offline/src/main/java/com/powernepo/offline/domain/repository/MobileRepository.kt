@@ -4,4 +4,5 @@ import com.powernepo.offline.domain.model.Mobile
 
 interface MobileRepository {
     fun insert(mobile: Mobile): Long
+    fun all(): List<Mobile>
 }
