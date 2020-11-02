@@ -10,7 +10,7 @@ class LazyBinding<T : Any>(
     private val parent: Fragment,
     private val kClass: KClass<T>
 ) : Lazy<T> {
-    var cache: T? = null
+    private var cache: T? = null
 
     override val value: T
         get() = if (cache == null) {

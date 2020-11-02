@@ -59,6 +59,17 @@ class Libraries {
         const val stdlibJdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
     }
 
+    object Room{
+
+        object Versions{
+            const val room = "2.2.5"
+        }
+
+        const val runtime = "androidx.room:room-runtime:${Versions.room}"
+        const val compile = "androidx.room:room-compiler:${Versions.room}"
+
+    }
+
     object DaggerHilt{
 
         object Versions{
