@@ -27,7 +27,8 @@ class PrimeiraTela : Fragment(R.layout.fragment_primeira_tela) {
         super.onViewCreated(view, savedInstanceState)
         lifecycle.coroutineScope.launch {
             requestPermissions {
-
+                val musics = repository.all()
+                musics
             }
         }
     }

@@ -5,6 +5,7 @@ import android.net.Uri
 import com.powernepo.device_content.annotation.Column
 import com.powernepo.device_content.exception.AnnotationNotFoundException
 import com.powernepo.device_content.extension.get
+import timber.log.Timber
 
 class ContentGeneratorImpl<T>(
     private val uri: Uri,
@@ -16,16 +17,21 @@ class ContentGeneratorImpl<T>(
         it.getAnnotation(Column::class.java)
     }
 
-    private fun generateCursor() = context.contentResolver
-        .query(
-            uri,
-            fields().map {
-                it.name
-            }.toTypedArray(),
-            null,
-            null,
-            null
-        )
+    private fun generateCursor() = try {
+        context.contentResolver
+            .query(
+                uri,
+                fields().map {
+                    it.name
+                }.toTypedArray(),
+                null,
+                null,
+                null
+            )
+    } catch (t: Throwable) {
+        Timber.e(t)
+        null
+    }
 
     override fun generate(): List<T> {
         val cursor = generateCursor()
@@ -38,20 +44,27 @@ class ContentGeneratorImpl<T>(
                     do {
                         val declaredConstructor = clazz.declaredConstructors.first()
                         val constructor = clazz.getConstructor(*declaredConstructor.parameterTypes)
-                        val constructorParams = mutableListOf<Any>()
+                        val constructorParams = hashMapOf<Int, Any>()
 
                         for (field in clazz.declaredFields) {
                             if (field.isAnnotationPresent(Column::class.java)) {
                                 val annotation = field.getAnnotation(Column::class.java)!!
-                                val annotationValue = annotation.name
+                                val annotationName = annotation.name
+                                val annotationOrder = annotation.order
 
-                                constructorParams.add(cursor.get(annotationValue))
+                                val cursorValue = cursor.get(field.type, annotationName)
+                                constructorParams[annotationOrder] = cursorValue
                             } else {
                                 throw AnnotationNotFoundException(Column::class)
                             }
                         }
 
-                        generatedList.add(constructor.newInstance(*constructorParams.toTypedArray()))
+                        val resolvedParams = constructorParams.toList().map {
+                            it.second
+                        }.toTypedArray()
+
+                        val newInstance = constructor.newInstance(*resolvedParams)
+                        generatedList.add(newInstance)
                     } while (cursor.moveToNext())
                 }
                 generatedList

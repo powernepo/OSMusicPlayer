@@ -3,6 +3,8 @@ package com.powernepo.device_media.music.module
 import android.content.Context
 import android.provider.MediaStore
 import com.powernepo.device_content.extension.generate
+import com.powernepo.device_content.generator.ContentGenerator
+import com.powernepo.device_content.generator.ContentGeneratorImpl
 import com.powernepo.device_media.music.data.entity.Music
 import dagger.Module
 import dagger.Provides

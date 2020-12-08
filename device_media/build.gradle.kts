@@ -37,7 +37,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":device_content"))
+    api(project(":device_content"))
 
     implementation(Libraries.Room.runtime)
     kapt(Libraries.Room.compile)
