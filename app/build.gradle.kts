@@ -54,7 +54,6 @@ dependencies {
     implementation(project(":common_android"))
     implementation(project(":data:offline"))
     implementation(project(":device_media"))
-    implementation(project(":device_content"))
 
     implementation(Libraries.Core.stdlibJdk8)
     implementation(Libraries.Core.stdlib)
