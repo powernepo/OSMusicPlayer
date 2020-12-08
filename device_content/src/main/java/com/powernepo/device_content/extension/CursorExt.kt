@@ -3,6 +3,8 @@ package com.powernepo.device_content.extension
 import android.database.Cursor
 import java.sql.Blob
 
+inline fun <reified T> Cursor.get(column: String) = get(T::class.java, column)
+
 fun <T> Cursor.get(clazz: Class<T>, column: String): T {
     val columnIndex = getColumnIndex(column)
 
@@ -18,7 +20,6 @@ fun <T> Cursor.get(clazz: Class<T>, column: String): T {
     } as T
 }
 
-inline fun <reified T> Cursor.getOrThrow(column: String) = get<T>(T::class.java, column)
 
 /*
 *

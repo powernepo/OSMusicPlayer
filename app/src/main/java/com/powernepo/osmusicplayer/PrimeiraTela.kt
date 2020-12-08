@@ -3,31 +3,15 @@ package com.powernepo.osmusicplayer
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.coroutineScope
-import com.powernepo.device_content.annotation.Column
-import com.powernepo.device_content.extension.generate
 import com.powernepo.device_media.music.domain.repository.MusicRepository
-import com.powernepo.offline.domain.repository.MobileRepository
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
-import kotlin.coroutines.startCoroutine
-import kotlin.coroutines.suspendCoroutine
 
-class Music(
-    @Column(MediaStore.Audio.Media._ID)
-    val id: String,
-
-    @Column(MediaStore.Audio.Media.DATA)
-    val data: String
-)
 
 @AndroidEntryPoint
 class PrimeiraTela : Fragment(R.layout.fragment_primeira_tela) {
@@ -43,9 +27,7 @@ class PrimeiraTela : Fragment(R.layout.fragment_primeira_tela) {
         super.onViewCreated(view, savedInstanceState)
         lifecycle.coroutineScope.launch {
             requestPermissions {
-                val builder = generate<Music>(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, requireContext())
-                val generated = builder.generateList()
-                generated
+
             }
         }
     }
