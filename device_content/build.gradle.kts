@@ -37,11 +37,7 @@ android {
 }
 
 dependencies {
-    implementation(Libraries.Room.runtime)
-    kapt(Libraries.Room.compile)
-
-    implementation(Libraries.DaggerHilt.hilt)
-    kapt(Libraries.DaggerHilt.hiltCompiler)
-
     implementation(Libraries.Log.timber)
+    testImplementation(Libraries.Test.junit)
+    androidTestImplementation(Libraries.Test.extJunit)
 }

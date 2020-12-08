@@ -79,4 +79,8 @@ class Libraries {
         const val viewModelCompiler = "androidx.hilt:hilt-compiler:${Versions.viewModelHilt}"
         const val viewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.viewModelHilt}"
     }
+
+    object Log{
+        const val timber = "com.jakewharton.timber:timber:4.7.1"
+    }
 }

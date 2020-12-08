@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/common_android" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/offline" />
+            <option value="$PROJECT_DIR$/device_content" />
             <option value="$PROJECT_DIR$/device_media" />
           </set>
         </option>

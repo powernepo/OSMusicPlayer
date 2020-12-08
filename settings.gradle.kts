@@ -2,7 +2,8 @@ setOf(
     ":app",
     ":common_android",
     ":data:offline",
-    ":device_media"
+    ":device_media",
+    ":device_content"
 ).forEach {
     include(it)
 }
