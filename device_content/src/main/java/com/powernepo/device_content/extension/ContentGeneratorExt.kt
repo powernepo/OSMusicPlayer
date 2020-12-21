@@ -6,7 +6,7 @@ import com.powernepo.device_content.generator.ContentGenerator
 import com.powernepo.device_content.generator.ContentGeneratorImpl
 
 fun <T> generate(uri: Uri, clazz: Class<T>, context: Context): ContentGenerator<T> =
-    ContentGeneratorImpl(uri, clazz, context)
+    ContentGeneratorImpl.build(uri, clazz, context)
 
 inline fun <reified T> generate(uri: Uri, context: Context) =
     generate(uri, T::class.java, context)

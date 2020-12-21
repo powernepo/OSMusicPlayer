@@ -36,7 +36,7 @@ class PrimeiraTela : Fragment(R.layout.fragment_primeira_tela) {
     private suspend fun requestPermissions(callback: suspend () -> Unit) {
         val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
         val isGranted = permissions.fold(initial = true, operation = { acc, permission ->
-            acc && requireContext().checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED
+            acc && ActivityCompat.checkSelfPermission(requireContext(), permission) == PackageManager.PERMISSION_GRANTED
         })
 
         if (isGranted.not()) {
@@ -44,13 +44,5 @@ class PrimeiraTela : Fragment(R.layout.fragment_primeira_tela) {
         } else {
             callback()
         }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 }
