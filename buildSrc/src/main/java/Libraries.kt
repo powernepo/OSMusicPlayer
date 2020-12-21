@@ -1,10 +1,9 @@
 class Libraries {
 
     object BuildScript {
-        const val gradle = "com.android.tools.build:gradle:4.1.0"
+        const val gradle = "com.android.tools.build:gradle:4.1.1"
         const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10"
-        const val hiltAndroidGradlePlugin =
-            "com.google.dagger:hilt-android-gradle-plugin:2.28-alpha"
+        const val hiltAndroidGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:2.28-alpha"
     }
 
     object Ui {
@@ -36,13 +35,12 @@ class Libraries {
         object Versions{
             const val junit = "4.13.1"
             const val extJunit = "1.1.2"
-            const val expresso = "3.3.0"
+            const val espresso = "3.3.0"
         }
 
         const val junit = "junit:junit:${Versions.junit}"
         const val extJunit = "androidx.test.ext:junit:${Versions.extJunit}"
-        const val espresso = "androidx.test.espresso:espresso-core:${Versions.expresso}"
-
+        const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     }
 
     object Core {
@@ -67,7 +65,6 @@ class Libraries {
 
         const val runtime = "androidx.room:room-runtime:${Versions.room}"
         const val compile = "androidx.room:room-compiler:${Versions.room}"
-
     }
 
     object DaggerHilt{
@@ -81,5 +78,9 @@ class Libraries {
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}"
         const val viewModelCompiler = "androidx.hilt:hilt-compiler:${Versions.viewModelHilt}"
         const val viewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.viewModelHilt}"
+    }
+
+    object Log{
+        const val timber = "com.jakewharton.timber:timber:4.7.1"
     }
 }

@@ -53,6 +53,7 @@ android {
 dependencies {
     implementation(project(":common_android"))
     implementation(project(":data:offline"))
+    implementation(project(":device_media"))
 
     implementation(Libraries.Core.stdlibJdk8)
     implementation(Libraries.Core.stdlib)
@@ -75,6 +76,8 @@ dependencies {
 
     implementation(Libraries.Room.runtime)
     kapt(Libraries.Room.compile)
+
+    implementation(Libraries.Log.timber)
 
     testImplementation(Libraries.Test.junit)
     androidTestImplementation(Libraries.Test.extJunit)
