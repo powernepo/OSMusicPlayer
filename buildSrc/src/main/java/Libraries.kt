@@ -35,12 +35,12 @@ class Libraries {
         object Versions{
             const val junit = "4.13.1"
             const val extJunit = "1.1.2"
-            const val expresso = "3.3.0"
+            const val espresso = "3.3.0"
         }
 
         const val junit = "junit:junit:${Versions.junit}"
         const val extJunit = "androidx.test.ext:junit:${Versions.extJunit}"
-        const val espresso = "androidx.test.espresso:espresso-core:${Versions.expresso}"
+        const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     }
 
     object Core {

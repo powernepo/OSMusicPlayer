@@ -7,5 +7,7 @@ typealias Model = com.powernepo.device_media.music.domain.model.Music
 
 fun Entity.toDomainModel() = Model(
     id = id,
-    data = data
+    relativePath = relativePath,
+    data = data,
+    albumId = albumId
 )

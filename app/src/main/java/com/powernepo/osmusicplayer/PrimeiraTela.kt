@@ -7,9 +7,14 @@ import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.coroutineScope
+import com.powernepo.common_android.extension.hasPermissionCompat
+import com.powernepo.common_android.extension.hasPermissionsCompat
 import com.powernepo.device_media.music.domain.repository.MusicRepository
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 
@@ -34,14 +39,11 @@ class PrimeiraTela : Fragment(R.layout.fragment_primeira_tela) {
     }
 
     private suspend fun requestPermissions(callback: suspend () -> Unit) {
-        val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-        val isGranted = permissions.fold(initial = true, operation = { acc, permission ->
-            acc && ActivityCompat.checkSelfPermission(requireContext(), permission) == PackageManager.PERMISSION_GRANTED
-        })
-
-        if (isGranted.not()) {
-            ActivityCompat.requestPermissions(requireActivity(), permissions, PERMISSION_CODE)
-        } else {
+        requireContext().hasPermissionsCompat(Manifest.permission.READ_EXTERNAL_STORAGE){
+            ActivityCompat.requestPermissions(requireActivity(), it, PERMISSION_CODE)
+        }.takeIf {
+            it
+        }?.let {
             callback()
         }
     }
