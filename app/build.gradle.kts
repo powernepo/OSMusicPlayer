@@ -40,8 +40,6 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility(JavaVersion.VERSION_1_8)
-        targetCompatibility(JavaVersion.VERSION_1_8)
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -54,6 +52,9 @@ dependencies {
     implementation(project(":common_android"))
     implementation(project(":data:offline"))
     implementation(project(":device_media"))
+
+    implementation ("com.google.android.exoplayer:exoplayer:2.13.2")
+    implementation("androidx.media:media:1.2.1")
 
     implementation(Libraries.Core.stdlibJdk8)
     implementation(Libraries.Core.stdlib)

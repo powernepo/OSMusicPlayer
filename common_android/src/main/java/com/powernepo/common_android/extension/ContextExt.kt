@@ -19,10 +19,10 @@ fun Context.hasPermissionsCompat(
     onPermissionDenied: (Array<out String>) -> Unit = {}
 ) =
     permissions.fold(initial = true, operation = { acc, permission ->
-        acc && hasPermissionCompat(
+        hasPermissionCompat(
             permission,
             permissionCheckResult
-        )
+        ) && acc
     }).also {
         it.takeUnless {
             it
